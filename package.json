@@ -9,6 +9,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "tauri": "tauri",
+    "package": "pkg server/package.json --output src-tauri/binaries/server && node scripts/move-binary.js",
     "format": "prettier --write ."
   },
   "dependencies": {
@@ -27,6 +28,8 @@
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.3",
     "autoprefixer": "^10.4.15",
+    "execa": "5.1.1",
+    "pkg": "^5.8.1",
     "postcss": "^8.4.29",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.4",

@@ -1,10 +1,13 @@
 {
   "name": "server",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "./src/index.ts",
+  "bin": "./build.cjs",
   "scripts": {
-    "dev": "ts-node ./src/index.ts"
+    "dev": "ts-node .",
+    "build": "tsc",
+    "bundle": "esbuild ./dist --bundle --outfile=build.cjs --format=cjs --platform=node"
   },
   "author": "",
   "license": "MIT",
@@ -15,6 +18,7 @@
     "zod": "^3.22.2"
   },
   "devDependencies": {
+    "esbuild": "^0.19.2",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   }
