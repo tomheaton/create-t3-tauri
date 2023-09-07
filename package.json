@@ -4,7 +4,6 @@
   "private": true,
   "version": "0.1.0",
   "license": "MIT",
-  "type": "module",
   "scripts": {
     "dev": "pnpm -r dev",
     "dev:d": "concurrently \"pnpm dev:server\" \"pnpm dev:tauri\"",
