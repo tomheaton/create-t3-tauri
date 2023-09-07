@@ -6,22 +6,20 @@
   "license": "MIT",
   "scripts": {
     "dev": "pnpm -r dev",
-    "dev:d": "concurrently \"pnpm dev:server\" \"pnpm dev:tauri\"",
     "dev:client": "cd app && pnpm dev",
     "dev:tauri": "cd app && pnpm tauri dev",
     "dev:server": "cd server && pnpm dev",
-    "build": "cd app && tsc && vite build",
-    "preview": "cd app && vite preview",
-    "tauri": "cd app && tauri",
+    "build:tauri": "cd app && pnpm tauri build",
     "package": "pkg server/package.json --output app/src-tauri/binaries/server && node scripts/move-binary.js",
     "format": "prettier --write ."
   },
   "devDependencies": {
-    "concurrently": "^8.2.1",
     "execa": "5.1.1",
     "pkg": "^5.8.1",
+    "prebuild-install": "^7.1.1",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.4",
+    "tiny-lru": "^11.0.1",
     "typescript": "^5.0.2"
   }
 }

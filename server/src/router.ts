@@ -15,39 +15,39 @@ export const appRouter = t.router({
       return `hello ${input.name}!`;
     }),
 
-  getPosts: t.procedure.query(({ ctx }) => {
-    // return ctx.prisma.post.findMany();
-  }),
+  // getPosts: t.procedure.query(({ ctx }) => {
+  //   // return ctx.prisma.post.findMany();
+  // }),
 
-  getPostById: t.procedure
-    .input(
-      z.object({
-        id: z.number(),
-      }),
-    )
-    .query(({ ctx, input }) => {
-      // return ctx.prisma.post.findFirst({
-      //   where: {
-      //     id: input.id,
-      //   },
-      // });
-    }),
+  // getPostById: t.procedure
+  //   .input(
+  //     z.object({
+  //       id: z.number(),
+  //     }),
+  //   )
+  //   .query(({ ctx, input }) => {
+  //     // return ctx.prisma.post.findFirst({
+  //     //   where: {
+  //     //     id: input.id,
+  //     //   },
+  //     // });
+  //   }),
 
-  createPost: t.procedure
-    .input(
-      z.object({
-        title: z.string().min(3),
-        content: z.string().min(3),
-      }),
-    )
-    .mutation(async ({ ctx, input }) => {
-      // await ctx.prisma.post.create({
-      //   data: {
-      //     title: input.title,
-      //     content: input.content,
-      //   },
-      // });
-    }),
+  // createPost: t.procedure
+  //   .input(
+  //     z.object({
+  //       title: z.string().min(3),
+  //       content: z.string().min(3),
+  //     }),
+  //   )
+  //   .mutation(async ({ ctx, input }) => {
+  //     // await ctx.prisma.post.create({
+  //     //   data: {
+  //     //     title: input.title,
+  //     //     content: input.content,
+  //     //   },
+  //     // });
+  //   }),
 });
 
 // export type definition of API

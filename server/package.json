@@ -22,7 +22,9 @@
   },
   "devDependencies": {
     "esbuild": "^0.19.2",
+    "prebuild-install": "^7.1.1",
     "prisma": "^5.2.0",
+    "tiny-lru": "^11.0.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   }
