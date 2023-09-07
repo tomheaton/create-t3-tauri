@@ -2,8 +2,8 @@
 name = "create-t3-tauri"
 version = "0.1.0"
 description = "Create T3 Tauri"
-authors = ["you"]
-license = ""
+authors = ["tomheaton"]
+license = "MIT"
 repository = ""
 edition = "2021"
 
