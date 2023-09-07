@@ -1,9 +1,15 @@
+import { api } from "../utils/api";
+
 export default function Index() {
+  const { data } = api.hello.useQuery({ name: "tomheaton" });
+
   return (
-    <div>
-      <h1>Create T3 Tauri</h1>
+    <div className="flex h-screen flex-col items-center justify-center bg-blue-200">
+      <h1 className="text-5xl font-extrabold tracking-tighter">
+        Create T3 Tauri
+      </h1>
       <br />
-      <p>Welcome to Create T3 Tauri!</p>
+      <p>{data ?? "none"}</p>
     </div>
   );
 }

@@ -24,7 +24,7 @@ export default function App() {
     api.createClient({
       links: [
         httpBatchLink({
-          url: "http://localhost:3000/trpc",
+          url: "http://localhost:1421/trpc",
         }),
       ],
     }),

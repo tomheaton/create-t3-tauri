@@ -4,7 +4,6 @@ import { z } from "zod";
 type User = {
   id: string;
   name: string;
-  bio?: string;
 };
 
 const users: Record<string, User> = {};
@@ -12,20 +11,38 @@ const users: Record<string, User> = {};
 export const t = initTRPC.create();
 
 export const appRouter = t.router({
-  getUserById: t.procedure.input(z.string()).query((opts) => {
-    return users[opts.input]; // input type is string
-  }),
+  hello: t.procedure
+    .input(
+      z.object({
+        name: z.string(),
+      }),
+    )
+    .query(({ input }) => {
+      return `hello ${input.name}!`;
+    }),
+
+  getUserById: t.procedure
+    .input(
+      z.object({
+        key: z.string(),
+      }),
+    )
+    .query(({ input }) => {
+      return users[input.key];
+    }),
+
   createUser: t.procedure
     .input(
       z.object({
         name: z.string().min(3),
-        bio: z.string().max(142).optional(),
       }),
     )
-    .mutation((opts) => {
+    .mutation(({ input }) => {
       const id = Date.now().toString();
-      const user: User = { id, ...opts.input };
+      const user: User = { id, ...input };
+
       users[user.id] = user;
+
       return user;
     }),
 });
