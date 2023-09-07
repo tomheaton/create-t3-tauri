@@ -2,7 +2,7 @@ import fastifyCorsPlugin from "@fastify/cors";
 import { fastifyTRPCPlugin } from "@trpc/server/adapters/fastify";
 import fastify from "fastify";
 import { createContext } from "./context";
-import prismaPlugin from "./prisma";
+// import fastifyPrismaPlugin from "./prisma";
 import { appRouter } from "./router";
 
 const server = fastify({
@@ -22,7 +22,7 @@ server.register(fastifyTRPCPlugin, {
   },
 });
 
-server.register(prismaPlugin);
+// server.register(fastifyPrismaPlugin);
 
 (async () => {
   try {

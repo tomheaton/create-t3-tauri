@@ -7,6 +7,27 @@ settings:
 importers:
 
   .:
+    devDependencies:
+      concurrently:
+        specifier: ^8.2.1
+        version: 8.2.1
+      execa:
+        specifier: 5.1.1
+        version: 5.1.1
+      pkg:
+        specifier: ^5.8.1
+        version: 5.8.1
+      prettier:
+        specifier: ^3.0.3
+        version: 3.0.3
+      prettier-plugin-tailwindcss:
+        specifier: ^0.5.4
+        version: 0.5.4(prettier@3.0.3)
+      typescript:
+        specifier: ^5.0.2
+        version: 5.2.2
+
+  app:
     dependencies:
       '@tanstack/react-query':
         specifier: ^4.33.0
@@ -48,15 +69,6 @@ importers:
       autoprefixer:
         specifier: ^10.4.15
         version: 10.4.15(postcss@8.4.29)
-      concurrently:
-        specifier: ^8.2.1
-        version: 8.2.1
-      execa:
-        specifier: 5.1.1
-        version: 5.1.1
-      pkg:
-        specifier: ^5.8.1
-        version: 5.8.1
       postcss:
         specifier: ^8.4.29
         version: 8.4.29
@@ -165,7 +177,7 @@ packages:
     resolution: {integrity: sha512-W1lG5vUwFvfMd8HVXqdfbuG7RuaSrTCCD8cl8fP8wOivdbtbIg2Db3IWUcgvfxKbbn6ZBGYRW/Zk1MIwK49mgw==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': 7.22.15
+      '@babel/types': 7.19.0
       '@jridgewell/gen-mapping': 0.3.3
       jsesc: 2.5.2
     dev: true
@@ -291,7 +303,7 @@ packages:
     engines: {node: '>=6.0.0'}
     hasBin: true
     dependencies:
-      '@babel/types': 7.22.15
+      '@babel/types': 7.19.0
     dev: true
 
   /@babel/parser@7.22.16:

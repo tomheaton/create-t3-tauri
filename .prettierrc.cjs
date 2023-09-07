@@ -9,7 +9,7 @@ const config = {
   printWidth: 80,
   endOfLine: "lf",
   plugins: [require.resolve("prettier-plugin-tailwindcss")],
-  tailwindConfig: "./tailwind.config.ts",
+  tailwindConfig: "./app/tailwind.config.ts",
 };
 
 module.exports = config;

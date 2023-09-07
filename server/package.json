@@ -1,7 +1,7 @@
 {
-  "name": "server",
+  "name": "@create-t3-tauri/server",
+  "description": "Create T3 Tauri Server",
   "version": "0.1.0",
-  "description": "",
   "main": "./src/index.ts",
   "bin": "./build.cjs",
   "scripts": {

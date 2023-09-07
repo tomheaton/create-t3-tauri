@@ -16,7 +16,7 @@ export const appRouter = t.router({
     }),
 
   getPosts: t.procedure.query(({ ctx }) => {
-    return ctx.prisma.post.findMany();
+    // return ctx.prisma.post.findMany();
   }),
 
   getPostById: t.procedure
@@ -26,11 +26,11 @@ export const appRouter = t.router({
       }),
     )
     .query(({ ctx, input }) => {
-      return ctx.prisma.post.findFirst({
-        where: {
-          id: input.id,
-        },
-      });
+      // return ctx.prisma.post.findFirst({
+      //   where: {
+      //     id: input.id,
+      //   },
+      // });
     }),
 
   createPost: t.procedure
@@ -41,12 +41,12 @@ export const appRouter = t.router({
       }),
     )
     .mutation(async ({ ctx, input }) => {
-      await ctx.prisma.post.create({
-        data: {
-          title: input.title,
-          content: input.content,
-        },
-      });
+      // await ctx.prisma.post.create({
+      //   data: {
+      //     title: input.title,
+      //     content: input.content,
+      //   },
+      // });
     }),
 });
 
