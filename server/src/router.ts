@@ -1,14 +1,8 @@
 import { initTRPC } from "@trpc/server";
 import { z } from "zod";
+import type { Context } from "./context";
 
-type User = {
-  id: string;
-  name: string;
-};
-
-const users: Record<string, User> = {};
-
-export const t = initTRPC.create();
+export const t = initTRPC.context<Context>().create();
 
 export const appRouter = t.router({
   hello: t.procedure
@@ -21,29 +15,38 @@ export const appRouter = t.router({
       return `hello ${input.name}!`;
     }),
 
-  getUserById: t.procedure
+  getPosts: t.procedure.query(({ ctx }) => {
+    return ctx.prisma.post.findMany();
+  }),
+
+  getPostById: t.procedure
     .input(
       z.object({
-        key: z.string(),
+        id: z.number(),
       }),
     )
-    .query(({ input }) => {
-      return users[input.key];
+    .query(({ ctx, input }) => {
+      return ctx.prisma.post.findFirst({
+        where: {
+          id: input.id,
+        },
+      });
     }),
 
-  createUser: t.procedure
+  createPost: t.procedure
     .input(
       z.object({
-        name: z.string().min(3),
+        title: z.string().min(3),
+        content: z.string().min(3),
       }),
     )
-    .mutation(({ input }) => {
-      const id = Date.now().toString();
-      const user: User = { id, ...input };
-
-      users[user.id] = user;
-
-      return user;
+    .mutation(async ({ ctx, input }) => {
+      await ctx.prisma.post.create({
+        data: {
+          title: input.title,
+          content: input.content,
+        },
+      });
     }),
 });
 

@@ -1,7 +1,8 @@
+import fastifyCorsPlugin from "@fastify/cors";
 import { fastifyTRPCPlugin } from "@trpc/server/adapters/fastify";
 import fastify from "fastify";
-import fastifyCorsPlugin from "@fastify/cors";
 import { createContext } from "./context";
+import prismaPlugin from "./prisma";
 import { appRouter } from "./router";
 
 const server = fastify({
@@ -20,6 +21,8 @@ server.register(fastifyTRPCPlugin, {
     createContext,
   },
 });
+
+server.register(prismaPlugin);
 
 (async () => {
   try {
