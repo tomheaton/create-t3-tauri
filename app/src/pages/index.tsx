@@ -31,14 +31,17 @@ export default function Index() {
   };
 
   return (
-    <div className="flex h-screen flex-col items-center justify-center bg-blue-300">
+    <div className="flex h-screen flex-col items-center justify-center bg-blue-300 p-4">
       <h1 className="text-5xl font-extrabold tracking-tighter">
         Create T3 Tauri
       </h1>
       <br />
       <p>{hello ?? "none"}</p>
       <br />
-      <form className="flex flex-col gap-y-4" onSubmit={handleSubmit}>
+      <form
+        className="flex w-full max-w-sm flex-col gap-y-4"
+        onSubmit={handleSubmit}
+      >
         <input
           type="text"
           value={title}
@@ -58,15 +61,14 @@ export default function Index() {
         <button type="submit">Create Post</button>
       </form>
       <br />
-      <div className="flex flex-col gap-y-2">
+      <div className="flex w-full max-w-sm flex-col gap-y-2">
         {posts?.map((post) => (
-          <div key={post.id} className="px-2 py-1 rounded border-white border-2">
-            <p className="font-semibold">
-              {post.title}
-            </p>
-            <p>
-              {post.content}
-            </p>
+          <div
+            key={post.id}
+            className="rounded border-2 border-white px-2 py-1"
+          >
+            <p className="font-semibold">{post.title}</p>
+            <p>{post.content}</p>
           </div>
         ))}
         {!posts && <p>No posts found!</p>}
