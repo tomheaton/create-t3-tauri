@@ -10,7 +10,8 @@
     "dev:tauri": "cd app && pnpm tauri dev",
     "dev:server": "cd server && pnpm dev",
     "build:tauri": "cd app && pnpm tauri build",
-    "package": "pkg server/package.json --output app/src-tauri/binaries/server && node scripts/move-binary.js",
+    "package-old": "pkg server/package.json --output app/src-tauri/binaries/server && node scripts/move-binary.js",
+    "package": "pkg ./server --output binaries/server",
     "format": "prettier --write ."
   },
   "devDependencies": {

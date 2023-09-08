@@ -1,1 +1,2 @@
-build.cjs
+bin
+prisma/dev.db

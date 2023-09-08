@@ -31,7 +31,7 @@ export default function Index() {
   };
 
   return (
-    <div className="flex h-screen flex-col items-center justify-center bg-blue-300 p-4">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-blue-300 p-4">
       <h1 className="text-5xl font-extrabold tracking-tighter">
         Create T3 Tauri
       </h1>
