@@ -1,4 +1,4 @@
-import { useState, type SyntheticEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { api } from "../utils/api";
 
 export default function Index() {
@@ -20,8 +20,7 @@ export default function Index() {
     },
   });
 
-  // TODO: use proper event type
-  const handleSubmit = (e: SyntheticEvent) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     createPostMutation.mutate({
