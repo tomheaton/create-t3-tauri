@@ -14,6 +14,8 @@ export default function Index() {
     onSuccess: () => {
       console.log("post created");
       context.getPosts.invalidate();
+      setTitle("");
+      setContent("");
     },
     onError: () => {
       console.log("failed to create post");
