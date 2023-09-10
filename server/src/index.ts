@@ -9,8 +9,7 @@ const server = fastify({
 });
 
 server.register(fastifyCorsPlugin, {
-  // TODO: only allow from tauri app
-  origin: "*",
+  origin: ["http://localhost:1420", "tauri://localhost"],
 });
 
 server.register(fastifyTRPCPlugin, {
@@ -23,8 +22,8 @@ server.register(fastifyTRPCPlugin, {
 
 (async () => {
   try {
-    await server.listen({ port: 1421 });
-    console.log("Server listening on port 1421");
+    const info = await server.listen({ port: 1421 });
+    console.log(info);
   } catch (err) {
     server.log.error(err);
     process.exit(1);
