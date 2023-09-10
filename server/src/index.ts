@@ -9,7 +9,11 @@ const server = fastify({
 });
 
 server.register(fastifyCorsPlugin, {
-  origin: ["http://localhost:1420", "tauri://localhost"],
+  origin: [
+    "http://localhost:1420",
+    "https://tauri.localhost",
+    "tauri://localhost",
+  ],
 });
 
 server.register(fastifyTRPCPlugin, {
