@@ -1,3 +1,5 @@
+import { readTextFile } from "@tauri-apps/api/fs";
+import { resolveResource } from "@tauri-apps/api/path";
 import { useState, type FormEvent } from "react";
 import { api } from "../utils/api";
 
@@ -31,6 +33,15 @@ export default function Index() {
     });
   };
 
+  const [testData, setTestData] = useState<string>("");
+  const testFiles = async () => {
+    const resourcePath = await resolveResource("prisma/schema.prisma");
+    const text = await readTextFile(resourcePath);
+
+    setTestData(text);
+    console.log(text);
+  };
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-blue-300 p-4">
       <h1 className="text-5xl font-extrabold tracking-tighter">
@@ -38,6 +49,11 @@ export default function Index() {
       </h1>
       <br />
       <p>{hello ?? "none"}</p>
+      <br />
+      <p>data: {testData}</p>
+      <button onClick={testFiles} className="bg-blue-500 px-2 py-1 text-white">
+        test
+      </button>
       <br />
       <form
         className="flex w-full max-w-sm flex-col gap-y-4"
@@ -63,7 +79,7 @@ export default function Index() {
       </form>
       <br />
       <div className="flex w-full max-w-sm flex-col gap-y-2">
-        {posts?.map((post) => (
+        {posts?.map((post: any) => (
           <div
             key={post.id}
             className="rounded border-2 border-white px-2 py-1"

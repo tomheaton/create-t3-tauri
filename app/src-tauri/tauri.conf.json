@@ -23,6 +23,13 @@
             "sidecar": true
           }
         ]
+      },
+      "fs": {
+        "all": true,
+        "scope": ["$RESOURCE/*"]
+      },
+      "path": {
+        "all": true
       }
     },
     "bundle": {
@@ -36,7 +43,8 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "externalBin": ["binaries/server"]
+      "externalBin": ["binaries/server"],
+      "resources": ["../../server/prisma/schema.prisma", "test.txt", "prisma/*"]
     },
     "security": {
       "csp": null

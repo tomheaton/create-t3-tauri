@@ -6,10 +6,10 @@
   "license": "MIT",
   "scripts": {
     "dev": "pnpm -r dev",
-    "dev:client": "cd app && pnpm dev",
-    "dev:tauri": "cd app && pnpm tauri dev",
-    "dev:server": "cd server && pnpm dev",
-    "build:tauri": "cd app && pnpm tauri build",
+    "dev:client": "pnpm --filter @create-t3-tauri/app dev",
+    "dev:tauri": "pnpm --filter @create-t3-tauri/app tauri dev",
+    "dev:server": "pnpm --filter @create-t3-tauri/server dev",
+    "build:tauri": "pnpm --filter @create-t3-tauri/app tauri build",
     "package-old": "pkg server/package.json --output app/src-tauri/binaries/server && node scripts/move-binary.js",
     "package": "pkg ./server --output binaries/server",
     "format": "prettier --write ."
